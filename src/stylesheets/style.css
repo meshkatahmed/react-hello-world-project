@@ -1,0 +1,13 @@
+.book {
+    width: 40%;
+    border: 2px solid blue;
+    padding: 10px;
+    margin-bottom: 50px;
+}
+
+.person {
+    width: 40%;
+    border: 2px dotted green;
+    padding: 10px;
+    margin-bottom: 50px;
+}
