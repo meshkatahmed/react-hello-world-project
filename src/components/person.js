@@ -36,7 +36,7 @@ class Person extends Component {
         };
         return (
             <div style={style} className='person'>
-                <input type="text" onClick={this.props.change} />
+                <input type="text" onChange={this.props.change} />
                 <h3 onClick={this.props.change}>Book Name: {this.props.bookName}</h3>
                 <h3>Writer: {this.props.writer}</h3>
             </div>

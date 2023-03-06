@@ -9,7 +9,8 @@ const Book = props => {
     };
     return (
         <div style={style} className='book'>
-            <h3>Book Name: {props.bookName}</h3>
+            <input type="text" onChange={props.change} />
+            <h3 onClick={props.delete}>Book Name: {props.bookName}</h3>
             <h4>Writer: {props.writer}</h4>
         </div>
     );
