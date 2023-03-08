@@ -3,10 +3,15 @@ import Booklist from './lists/bookList.js';
 import books from '../assets/bookList.js';
 
 class MainComponent extends Component {
-    state = {
-        books: books,
-        showBooks: true
+    constructor(props) {
+        super(props);
+        this.state = {
+            books: books,
+            showBooks: true
+        }
+        console.log('MainComponent constructor!');
     }
+    
     changeBookState = (x) => {
         // Normal JavaScript is not applicable here
         this.setState({
@@ -37,7 +42,30 @@ class MainComponent extends Component {
             showBooks: !this.state.showBooks
         })
     }
+    
+    componentDidMount() {
+        console.log('MainComponent componentDidMount!');
+    }
+    shouldComponentUpdate(nextProps,nextState){
+        console.log('U MainCOmponent shouldComponentUpdate',nextProps,nextState);
+        return true;
+    }
+    
+    componentDidUpdate() {
+        // this.setState({showBooks:false});
+        console.log('U MainComponent componentDidUpdate!');
+    }
+    
+    static getDerivedStateFromProps(nextProps,prevState){
+        console.log('U MainComponent getDerivedStateFromProps',nextProps,prevState);
+        return prevState;
+    }
+    getSnapshotBeforeUpdate(){
+        console.log('U MainComponent getSnapshotbeforeUpdate');
+    }
+
     render() {
+        console.log('MainComponent render!');
         let books = null;
         if (this.state.showBooks) {
             books = <Booklist

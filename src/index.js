@@ -9,10 +9,10 @@ const root1 = ReactDOM.createRoot(document.getElementById('root'));
 // const root2 = ReactDOM.createRoot(document.getElementById('root2'));
 
 root1.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <App />
-    {/* <person /> */}
-  </React.StrictMode>
+    /* <person /> */
+  // </React.StrictMode>
 );
 // root2.render(
 //   <React.StrictMode>
