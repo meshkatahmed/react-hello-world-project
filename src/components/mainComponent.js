@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import Booklist from './lists/bookList.js';
 import books from '../assets/bookList.js';
+import NewBook from './representational/newBook.js';
 
 class MainComponent extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            books: books,
-            showBooks: true
-        }
-        console.log('MainComponent constructor!');
+    // constructor(props) {
+    //     super(props);
+    // }
+    state = {
+        books: books,
+        showBooks: true
     }
     
     changeBookState = (x) => {
@@ -43,29 +43,7 @@ class MainComponent extends Component {
         })
     }
     
-    componentDidMount() {
-        console.log('MainComponent componentDidMount!');
-    }
-    shouldComponentUpdate(nextProps,nextState){
-        console.log('U MainCOmponent shouldComponentUpdate',nextProps,nextState);
-        return true;
-    }
-    
-    componentDidUpdate() {
-        // this.setState({showBooks:false});
-        console.log('U MainComponent componentDidUpdate!');
-    }
-    
-    static getDerivedStateFromProps(nextProps,prevState){
-        console.log('U MainComponent getDerivedStateFromProps',nextProps,prevState);
-        return prevState;
-    }
-    getSnapshotBeforeUpdate(){
-        console.log('U MainComponent getSnapshotbeforeUpdate');
-    }
-
     render() {
-        console.log('MainComponent render!');
         let books = null;
         if (this.state.showBooks) {
             books = <Booklist
@@ -73,10 +51,13 @@ class MainComponent extends Component {
                 deleteBookFromState={this.deleteBookFromState}
                 changeWithInputElement={this.changeWithInputElement} />
         }
-        return React.createElement('div', { className: "App" },
+        return React.createElement('div', { className: "App" },React.createElement('div',{className:'nav-bar'},
+            React.createElement('ul',null,React.createElement('li',null,
+            React.createElement('a',{href:'/'},'Home')),
+            React.createElement('li',null,React.createElement('a',{href:'/new'},'New Book'))),
             React.createElement('h1', null, 'Book List'),
             React.createElement('button', { onClick: this.toggleBooks }, 'Toggle Books'),
-            books);
+            books,<NewBook/>));
     }
 }
 

@@ -1,8 +1,13 @@
 import MainComponent from './components/mainComponent.js';
 import './App.css';
+import {BrowserRouter} from 'react-router-dom';
 
 const App = () => {
-  return <MainComponent />;
+  return (
+    <BrowserRouter>
+      <MainComponent /> 
+    </BrowserRouter>
+  );
 }
 
 export default App;
