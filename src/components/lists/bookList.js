@@ -1,6 +1,7 @@
-import React,{Component} from 'react';
+import React, { Component } from 'react';
 import Book from '../representational/book.js'
-
+import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class Booklist extends Component {
     // constructor(props) {
@@ -10,14 +11,15 @@ class Booklist extends Component {
     render() {
         return this.props.books.map((book, index) => {
             return (
-                <Book bookName={book.bookName}
-                    writer={book.writer}
-                    delete={() => this.props.deleteBookFromState(index)}
-                    change={(event) => this.props.changeWithInputElement(event, index)}
-                    key={book.id} />
+                <Link to={'/' + book.id} key={book.id} style={{ textDecoration: 'none', color: 'black' }}>
+                    <Book bookName={book.bookName}
+                        writer={book.writer}
+                        selectedBookHandler={() => this.props.selectedBookHandler(book.id)} />
+                </Link>
+
             );
         });
-    } 
+    }
 }
 
-export default Booklist;
+export default withRouter(Booklist);

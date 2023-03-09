@@ -5,13 +5,13 @@ import App from './App.js';
 // import { person } from './App.js';
 import reportWebVitals from './reportWebVitals';
 
-const root1 = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
 // const root2 = ReactDOM.createRoot(document.getElementById('root2'));
 
-root1.render(
+root.render(
   // <React.StrictMode>
-    <App />
-    /* <person /> */
+  <App />
+  /* <person /> */
   // </React.StrictMode>
 );
 // root2.render(
