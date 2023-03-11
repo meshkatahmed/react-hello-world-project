@@ -3,45 +3,32 @@ import React, { Component } from 'react';
 class NewBook extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            bookName: '',
-            writer: '',
-            description: ''
-        }
-        this.handleInputChange = this.handleInputChange(this);
-        this.handleSubmit = this.handleSubmit(this);
+        this.bookName = React.createRef();
+        this.writer = React.createRef();
+        this.description = React.createRef();
     }
     handleSubmit = event => {
-        console.log(this.state);
+        console.log(this.bookName.current.value);
+        console.log(this.writer.current.value);
+        console.log(this.description.current.value);
         event.preventDefault();
-    }
-    handleInputChange = event => {
-        const name = event.target.name;
-        const value = event.target.value;
-
-        this.setState({
-            [name]: value
-        });
     }
 
     render() {
         return (
             <div>
                 <h1>New book entry</h1>
-                <form onSubmit={event => this.handleSubmit(event)}>
+                <form onSubmit={this.handleSubmit}>
                     <label>Book Name: </label>
-                    <input type='text' name='bookName' value={this.state.bookName}
-                        onChange={this.handleInputChange} />
+                    <input type='text' name='bookName' ref={this.bookName} />
                     <br />
                     <br />
                     <label>Writer: </label>
-                    <input type='text' name='writer' value={this.state.writer}
-                        onChange={this.handleInputChange} />
+                    <input type='text' name='writer' ref={this.writer} />
                     <br />
                     <br />
                     <label>Description: </label>
-                    <textarea name='description' value={this.state.description}
-                        onChange={this.handleInputChange} />
+                    <textarea name='description' ref={this.description} />
                     <br />
                     <br />
                     <button type='submit'>Submit</button>
